@@ -1,5 +1,5 @@
 # Clock
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000)](https://github.com/mkudija/Aircraft-Spec-Charts/blob/master/LICENSE)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000)](https://github.com/mkudija/Clock/blob/master/LICENSE)
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/mkudija)
 
 > This script produces the background for a 24-hour wall clock. Sunrise and sunset times for the summer and winter solstices are included for a particular location. 
