@@ -54,8 +54,8 @@ def plot_night(sunrise_hr, sunrise_min, sunset_hr, sunset_min, color):
 	night_time = 24 - (sunset_time - sunrise_time)
 	night_time_rad = night_time * 2*np.pi/24
 
-	angles = [hr_min,hr_min]
-	ax.bar(angles, np.full(2, 100), width=night_time_rad, bottom=0.0, color=color, linewidth=0)
+	ax.bar(hr_min, rmax, width=night_time_rad, bottom=0.0, color=color, linewidth=0)
+
 
 def plot_city(sunrise_dec, sunset_dec, sunrise_jun, sunset_jun, city):
 	plot_night(sunrise_dec[0], sunrise_dec[1], sunset_dec[0], sunset_dec[1], color='#E5E3E2')
@@ -88,105 +88,3 @@ sunset_jun  = [20, 21]
 
 
 plot_city(sunrise_dec, sunset_dec, sunrise_jun, sunset_jun, city)
-
-
-
-
-
-
-
-
-
-'''
-#-------------------------------------------------------------
-city = 'Paso Robles, CA'
-
-# DECEMBER
-#--------------------------------------
-sunrise_hr  = 7
-sunrise_min = 8
-
-sunset_hr  = 16
-sunset_min = 52
-#--------------------------------------
-
-
-#-------------------------------------------------------------
-city = 'Columbus, OH'
-
-# DECEMBER
-#--------------------------------------
-sunrise_hr  = 7
-sunrise_min = 50
-
-sunset_hr  = 17
-sunset_min = 10
-#--------------------------------------
-
-
-sunrise_hr_neg = sunrise_hr * -1
-sunrise_min_neg  = sunrise_min * -1
-
-hr_pi = sunrise_hr_neg * 2*np.pi/24 
-hr_min = (hr_pi + sunrise_min_neg * 2*np.pi/(24*60) ) - np.pi/2
-
-sunrise_time = sunrise_hr + sunrise_min/60
-sunset_time  = sunset_hr  + sunset_min/60
-
-night_time = 24 - (sunset_time - sunrise_time)
-night_time_rad = night_time * 2*np.pi/24
-
-angles = [hr_min,hr_min]
-ax.bar(angles, np.full(2, 100), width=night_time_rad, bottom=0.0, color='#E5E3E2', linewidth=0)
-
-
-# JUNE
-#city = 'Paso Robles, CA'
-#--------------------------------------
-sunrise_hr  = 5
-sunrise_min = 47
-
-sunset_hr  = 20
-sunset_min = 21
-#--------------------------------------
-
-
-# JUNE
-#city = 'Columbus, OH'
-#--------------------------------------
-sunrise_hr  = 6
-sunrise_min = 3
-
-sunset_hr  = 21
-sunset_min = 3
-#--------------------------------------
-
-
-sunrise_hr_neg = sunrise_hr * -1
-sunrise_min_neg  = sunrise_min * -1
-
-hr_pi = sunrise_hr_neg * 2*np.pi/24 
-hr_min = (hr_pi + sunrise_min_neg * 2*np.pi/(24*60) ) - np.pi/2
-
-sunrise_time = sunrise_hr + sunrise_min/60
-sunset_time  = sunset_hr  + sunset_min/60
-
-night_time = 24 - (sunset_time - sunrise_time)
-night_time_rad = night_time * 2*np.pi/24
-
-angles = [hr_min,hr_min]
-ax.bar(angles, np.full(2, 100), width=night_time_rad, bottom=0.0, color='#959493', linewidth=0)
-
-
-
-# print name and location
-ax.text(90*(np.pi/180),20,city,ha='center',va='center',weight='bold',fontsize=8)
-
-ax.set_rmax(rmax)
-ax.axes.get_xaxis().set_visible(False)
-ax.axes.get_yaxis().set_visible(False)
-ax.grid(False)
-
-plt.savefig('clock-' + city + '.png', dpi=300)
-plt.show()
-'''
