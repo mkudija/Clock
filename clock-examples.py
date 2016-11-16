@@ -1,4 +1,5 @@
-'''#-----------------------------------------------------------------------
+'''
+#-----------------------------------------------------------------------
 # clock.py
 #-----------------------------------------------------------------------
 # from here: http://introcs.cs.princeton.edu/python/15inout/clock.py.html
@@ -91,8 +92,7 @@ while True:
 
 
 
-
-
+'''
 
 
 
@@ -240,28 +240,28 @@ while True: # main application loop
 
     # Uncomment this if you want the "pulsing clock" feature:
     #CLOCKSIZE = originalClockSize + math.sin(2 * math.pi * (time.time() % 1)) * PULSESIZE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # http://code.activestate.com/recipes/578875-analog-clock/
     #!/usr/bin/env python
 # coding: UTF-8
@@ -284,7 +284,7 @@ while True: # main application loop
 
 import sys, types, os
 from time import localtime
-from datetime import timedelta,datetime
+from datetime import timedelta, datetime
 from math import sin, cos, pi
 from threading import Thread
 try:
@@ -464,12 +464,13 @@ class clock:
     ## Redraws the whole clock.
     # 
     def redraw(self):
-        start = pi/2              # 12h is at pi/2
-        step = pi/6
-        for i in range(12):       # draw the minute ticks as circles
+        start = -pi/2              # 12h is at pi/2
+        step = pi/12
+        for i in range(24):       # draw the minute ticks as circles
             angle =  start-i*step
             x, y = cos(angle),sin(angle)
             self.paintcircle(x,y)
+            #self.draw.text((0, 0),"Sample Text",(255,255,255),font=font)
         self.painthms()           # draw the handles
         if not self.showImage:
            self.paintcircle(0,0)  # draw a circle at the centre of the clock
@@ -481,15 +482,15 @@ class clock:
         T = datetime.timetuple(datetime.utcnow()-self.delta)
         x,x,x,h,m,s,x,x,x = T
         self.root.title('%02i:%02i:%02i' %(h,m,s))
-        angle = pi/2 - pi/6 * (h + m/60.0)
+        angle = -pi/2 - pi/12 * (h + m/60.0)
         x, y = cos(angle)*0.70,sin(angle)*0.70   
         scl = self.canvas.create_line
         # draw the hour handle
-        scl(self.T.windowToViewport(0,0,x,y), fill = self.timecolor, tag=self._ALL, width = self.pad/3)
+        scl(self.T.windowToViewport(0,0,x,y), fill = self.timecolor, tag=self._ALL, width = self.pad/5)
         angle = pi/2 - pi/30 * (m + s/60.0)
         x, y = cos(angle)*0.90,sin(angle)*0.90
         # draw the minute handle
-        scl(self.T.windowToViewport(0,0,x,y), fill = self.timecolor, tag=self._ALL, width = self.pad/5)
+        scl(self.T.windowToViewport(0,0,x,y), fill = self.timecolor, tag=self._ALL, width = self.pad/7)
         angle = pi/2 - pi/30 * s
         x, y = cos(angle)*0.95,sin(angle)*0.95   
         # draw the second handle
@@ -509,6 +510,8 @@ class clock:
     def poll(self):
         self.redraw()
         self.root.after(200,self.poll)
+
+
 
 ## Main program for testing.
 #
@@ -544,5 +547,4 @@ def main(argv=None):
 
 if __name__=='__main__':
     sys.exit(main())
-
-    '''
+    
