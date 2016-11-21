@@ -35,4 +35,4 @@ I bought a [24-hour clock movement](http://www.esslinger.com/clock-movement-24-h
 
 Here is the result: 
 
-<img src="https://github.com/mkudija/Clock/blob/master/24-hr_clock.jpg" width="425"/>
+<img src="https://github.com/mkudija/Clock/blob/master/24_hr_clock.jpg" width="425"/>
